@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.FirstFragment">
+
+    <EditText
+        android:id="@+id/editText_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="22dp"
+        android:layout_marginTop="200dp"
+        android:background="@color/blue"
+        android:hint="Имя"
+        android:paddingStart="12dp"
+        android:textColor="@color/grey"
+        android:textColorHint="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editText_surName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="22dp"
+        android:layout_marginTop="300dp"
+        android:background="@color/blue"
+        android:hint="Фамилия"
+        android:paddingStart="12dp"
+        android:textColor="@color/grey"
+        android:textColorHint="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonNavigate_first"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="22dp"
+        android:layout_marginTop="400dp"
+        android:background ="@color/green"
+        android:paddingStart="12dp"
+        android:text="Еще"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"/>
+
+</FrameLayout>
