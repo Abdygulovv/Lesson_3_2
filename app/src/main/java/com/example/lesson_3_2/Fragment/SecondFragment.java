@@ -16,9 +16,8 @@ import android.widget.Toast;
 import com.example.lesson_3_2.R;
 public class SecondFragment extends Fragment {
 
+    private EditText name, surName, age, gender;
     AppCompatButton buttonSecond;
-    EditText editTextAge;
-    EditText editTextGender;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,16 +32,19 @@ public class SecondFragment extends Fragment {
         findViews();
         setClick();
         navigate();
+        info();
     }
 
     private void findViews() {
         buttonSecond = requireActivity().findViewById(R.id.buttonNavigate_second);
-        editTextAge = requireActivity().findViewById(R.id.editText_age);
-        editTextGender = requireActivity().findViewById(R.id.editText_gender);
+        name = requireActivity().findViewById(R.id.editText_name);
+        surName = requireActivity().findViewById(R.id.editText_surName);
+        age = requireActivity().findViewById(R.id.editText_age);
+        gender = requireActivity().findViewById(R.id.editText_gender);
     }
 
     private void setClick() {
-        if (!editTextAge.getText().toString().isEmpty() && !editTextGender.getText().toString().isEmpty()) {
+        if (!name.getText().toString().isEmpty() && !surName.getText().toString().isEmpty()) {
         } else {
             Toast.makeText(getContext(), "заполнить поля", Toast.LENGTH_LONG).show();
         }
@@ -58,10 +60,23 @@ public class SecondFragment extends Fragment {
 
     private void navigate() {
         Bundle bundle = new Bundle();
-        bundle.putString("age",editTextAge.getText().toString());
-        bundle.putString("gender",editTextGender.getText().toString());
+        bundle.putString("age", age.getText().toString());
+        bundle.putString("gender", gender.getText().toString());
+        bundle.putString("age",name.getText().toString());
+        bundle.putString("gender",surName.getText().toString());
 
         ThirdFragment fragment = new ThirdFragment();
         fragment.setArguments(bundle);
+
+
+    }
+
+    private void info() {
+        String resultName = getArguments().getString("name");
+        name.setText(resultName);
+        String resultSurName = getArguments().getString("surName");
+        surName.setText(resultSurName);
+
+
     }
 }

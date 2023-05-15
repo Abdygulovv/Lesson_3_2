@@ -16,12 +16,6 @@ import com.example.lesson_3_2.R;
 public class FourthFragment extends Fragment {
 
     private TextView name, surName, age, gender, fromSchool, fromWork;
-    TextView textViewName;
-    TextView textViewSurName;
-    TextView textViewAge;
-    TextView textViewGender;
-    TextView textViewFromSchool;
-    TextView textViewFromWork;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,16 +32,6 @@ public class FourthFragment extends Fragment {
     }
 
     private void findViews() {
-        textViewName = requireActivity().findViewById(R.id.TextView_name);
-        textViewSurName = requireActivity().findViewById(R.id.TextView_useName);
-        textViewAge = requireActivity().findViewById(R.id.TextView_age);
-        textViewGender = requireActivity().findViewById(R.id.TextView_gender);
-        textViewFromSchool = requireActivity().findViewById(R.id.TextView_fromSchool);
-        textViewFromWork = requireActivity().findViewById(R.id.TextView_fromWork);
-
-    }
-
-    private void info() {
         name = requireActivity().findViewById(R.id.TextView_name);
         surName = requireActivity().findViewById(R.id.TextView_useName);
         age = requireActivity().findViewById(R.id.TextView_age);
@@ -55,6 +39,9 @@ public class FourthFragment extends Fragment {
         fromSchool = requireActivity().findViewById(R.id.TextView_fromSchool);
         fromWork = requireActivity().findViewById(R.id.TextView_fromWork);
 
+    }
+
+    private void info() {
         String resultName = getArguments().getString("name");
         name.setText(resultName);
 

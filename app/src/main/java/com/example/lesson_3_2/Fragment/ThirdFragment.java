@@ -11,14 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lesson_3_2.R;
 public class ThirdFragment extends Fragment {
 
     AppCompatButton buttonThird;
-    EditText editTextStudies;
-    EditText editTextWord;
+    private TextView name, surName, age, gender, fromSchool, fromWork;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,14 +36,18 @@ public class ThirdFragment extends Fragment {
     }
 
     private void findViews() {
+        fromSchool = requireActivity().findViewById(R.id.editText_fromSchool);
+        fromWork = requireActivity().findViewById(R.id.editText_fromWork);
         buttonThird = requireActivity().findViewById(R.id.buttonNavigate_third);
-        editTextStudies = requireActivity().findViewById(R.id.editText_fromSchool);
-        editTextWord = requireActivity().findViewById(R.id.editText_fromWork);
+        name = requireActivity().findViewById(R.id.editText_name);
+        surName = requireActivity().findViewById(R.id.editText_surName);
+        age = requireActivity().findViewById(R.id.editText_age);
+        gender = requireActivity().findViewById(R.id.editText_gender);
     }
 
     private void setClick() {
         buttonThird.setOnClickListener(v -> {
-                    if (!editTextStudies.getText().toString().isEmpty() && !editTextWord.getText().toString().isEmpty()) {
+                    if (!fromSchool.getText().toString().isEmpty() && !fromWork.getText().toString().isEmpty()) {
                     } else {
                         Toast.makeText(getContext(), "заполнить поля", Toast.LENGTH_LONG).show();
                     }
@@ -58,8 +62,12 @@ public class ThirdFragment extends Fragment {
 
     private void navigate() {
         Bundle bundle = new Bundle();
-        bundle.putString("fromSchool",editTextStudies.getText().toString());
-        bundle.putString("fromWork",editTextWord.getText().toString());
+        bundle.putString("fromSchool",fromSchool.getText().toString());
+        bundle.putString("fromWork",fromWork.getText().toString());
+        bundle.putString("age", age.getText().toString());
+        bundle.putString("sex", gender.getText().toString());
+        bundle.putString("name",name.getText().toString());
+        bundle.putString("surName",surName.getText().toString());
 
         FourthFragment fragment = new FourthFragment();
         fragment.setArguments(bundle);
